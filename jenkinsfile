@@ -15,7 +15,7 @@ pipeline{
         }
         stage('Checkout from Git'){
             steps{
-                git 'https://github.com/KastroVKiran/DevOps-Project-Swiggy.git'
+                git 'https://github.com/saivinay0407/Swiggy-app.git'
             }
         }
         stage("Sonarqube Analysis "){
@@ -54,7 +54,7 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker'){   
                        sh "docker build -t swiggy ."
-                       sh "docker tag swiggy kastrov/swiggy:latest "
+                       sh "docker tag swiggy venkatasaivinay/swiggy:latest "
                        sh "docker push kastrov/swiggy:latest "
                     }
                 }
